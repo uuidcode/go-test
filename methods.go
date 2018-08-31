@@ -13,7 +13,12 @@ func (v Vertex3) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
+func Abs(v Vertex3) float64 {
+	return v.Abs()
+}
+
 func main() {
 	v := Vertex3{3, 4}
 	fmt.Println(v.Abs())
+	fmt.Println(Abs(v))
 }
