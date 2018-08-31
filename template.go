@@ -6,16 +6,25 @@ import (
 )
 
 type Project struct {
-	Name     string
-	Location string
-	Title    string
+	Name           string
+	Location       string
+	Title          string
+	ThisIsNewField string
 }
 
 func main() {
 	template := template.New("template")
-	template, _ = template.Parse("Hello, {{.Title}} {{.Name}} {{.Location}} {{.Name}}")
+
+	content :=
+		`	Hello, 
+	{{.Title}} {{.Name}} 
+	{{.Location}} {{.Name}}
+`
+
+	template, _ = template.Parse(content)
+
 	project := Project{
-		"test", "Seoul", "테스트",
+		"test", "Seoul", "테스트", "한글",
 	}
 
 	template.Execute(os.Stdout, project)
