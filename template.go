@@ -18,8 +18,7 @@ func main() {
 	content :=
 		`	Hello, 
 	{{.Title}} {{.Name}} 
-	{{.Location}} {{.Name}}
-`
+	{{.Location}} {{.Name}}`
 
 	template, _ = template.Parse(content)
 
