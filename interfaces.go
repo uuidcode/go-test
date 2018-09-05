@@ -27,6 +27,25 @@ func (v *Vertex5) Abs() float64 {
 	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
+type Sender interface {
+	Send()
+}
+
+type Receiver interface {
+	Receive()
+}
+
+type Phone struct {
+}
+
+func (Phone) Send() {
+
+}
+
+func (Phone) Receive() {
+
+}
+
 func main() {
 	var a Abser
 	f := MyFloat5(-math.Sqrt2)
@@ -36,4 +55,13 @@ func main() {
 	a = &v
 
 	fmt.Println(a.Abs())
+
+	var phone interface{}
+	phone = Phone{}
+
+	typeOf, ok := phone.(Sender)
+
+	fmt.Printf("type:%T\n", phone)
+	fmt.Println(typeOf)
+	fmt.Println(ok)
 }
